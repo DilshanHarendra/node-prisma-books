@@ -1,0 +1,9 @@
+model Author{
+
+    id Int @id @default(autoincrement())
+    name String @db.VarChar(255)
+    email String @unique
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
+
+}

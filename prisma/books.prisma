@@ -1,0 +1,19 @@
+model Books{
+    id  Int @id @dafault(autoincreament())
+    createAt DateTime @default(now())
+    updateAt DateTime @updateAt
+    title string @db.VarChar(255)
+    category Category @default(NOCATEGORY)
+    author Author @relation(fields:[authorId], references:[id])
+    authorId Int?
+}
+
+enum Category{
+    NOCATEGORY
+    PROGRAMMING
+    MATHS
+    BIO
+    COMMERCE
+    ACCOUNTING
+    CHEMISTRY
+}
