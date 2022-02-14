@@ -5,17 +5,19 @@
   "main": "index.js",
   "dependencies": {
     "@prisma/client": "^3.9.2",
+    "body-parser": "^1.19.1",
     "cors": "^2.8.5",
     "express": "^4.17.2",
-    "init": "^0.1.2"
+    "init": "^0.1.2",
+    "nodemon": "^2.0.15"
   },
   "devDependencies": {
     "prisma": "^3.9.2"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js",
-    "prod": "node index.js"
+    "dev": "NODE_ENV=dev nodemon index.js",
+    "prod": "NODE_ENV=prod node index.js"
   },
   "author": "Dilshan",
   "license": "ISC"
