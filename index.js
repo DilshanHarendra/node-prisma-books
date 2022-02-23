@@ -50,6 +50,41 @@ app.get('/book/:id',(req,res)=>{
     })
 })
 
+app.put('/book/:id',(req,res)=>{
+    prisma.books.update({
+        where:{
+            id:parseInt(req.params.id)
+        },
+        data: {
+            title: req.body.title,
+            category: req.body.category,
+        },
+    }).then(books=>{
+        res.status(200).send({
+            data: books
+        })
+    }).catch(err=>{
+        res.status(400).send({
+            error: err
+        })
+    })
+})
+
+app.delete('/book/:id',(req,res)=>{
+    prisma.books.delete({
+        where:{
+            id:parseInt(req.params.id)
+        }
+    }).then(books=>{
+        res.status(200).send({
+            data: books
+        })
+    }).catch(err=>{
+        res.status(400).send({
+            error: err
+        })
+    })
+})
 
 
 app.post('/books',(req,res)=>{
